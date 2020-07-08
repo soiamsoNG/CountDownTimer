@@ -1,0 +1,13 @@
+FROM fedora:32
+
+RUN dnf -y upgrade \
+  && dnf -y install \
+  meson.noarch \
+  gcc \
+  vala \
+  gtk3-devel \
+  gsound-devel \
+  && dnf clean all
+
+WORKDIR /work
+COPY . .
