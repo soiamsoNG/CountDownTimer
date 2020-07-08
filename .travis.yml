@@ -7,7 +7,6 @@ matrix:
       install:
         - travis_retry docker build --rm -t cdt -f Dockerfile-fedora .
       script:
-        - docker run -t cdt meson build
-        - docker run -t cdt ninja -C build
+        - docker run -t cdt /bin/bash -c "meson build;ninja -C build"
   allow_failures:
   fast_finish: true
