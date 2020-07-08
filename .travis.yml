@@ -5,9 +5,9 @@ matrix:
       language: minimal
       services: docker
       install:
-        - travis_retry docker build --rm -t CTDContainer -f Dockerfile-fedora .
+        - travis_retry docker build --rm -t cdt -f Dockerfile-fedora .
       script:
-        - docker run --rm -t CTDContainer meson build
-        - docker run --rm -t CTDContainer ninja -C build
+        - docker run --rm -t cdt meson build
+        - docker run --rm -t cdt ninja -C build
   allow_failures:
   fast_finish: true
